@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kata-Siaga - Moderasi Kata Kasar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>KATA S!AGA</h1>
+
+    <div class="meter-container">
+        <div id="meterFill" class="meter-fill"></div>
+    </div>
+    <div id="alertMessage"></div>
+
+    <textarea id="textInput" rows="10" placeholder="Tempelkan teks kamu di sini..."></textarea>
+    <br>
+
+    <div class="button-group">
+        <button id="moderateBtn" onclick="moderateText()">Moderasi Teks</button>
+        <button id="clearBtn" onclick="clearText()">Reset</button>
+        <button id="downloadBtn" onclick="downloadResult()">Download Hasil</button>
+    </div>
+
+    <div id="resultArea"></div>
+
+    <div id="warningModal" class="modal">
+        <div class="modal-content">
+            <h2>Peringatan!</h2>
+            <p>Konten ini mengandung kata-kata kasar!</p>
+            <button onclick="closeModal()">Tutup</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
