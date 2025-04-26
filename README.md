@@ -9,8 +9,8 @@
 
 - 🔍 **Moderasi Otomatis**: Deteksi kata-kata berbahaya dari input pengguna dengan cepat dan akurat.
 - 📈 **Siaga Meter**: Indikator visual yang menunjukkan seberapa “siaga” situasi berdasarkan jumlah kata terlarang.
-- ⚙️ **Halaman Manajemen**: Tambah, edit, dan hapus daftar kata terlarang langsung dari antarmuka.
-- 🎨 **Tampilan Dinamis**: Desain keren dengan nuansa warna siaga dan animasi transisi.
+- ⚙️ **Halaman Manajemen**: Cek moderasi kata anda,reset,dan donwliad hasilnya! 
+- 🎨 **Tampilan Dinamis**: Desain keren dengan nuansa warna yang elegan dan animasi yang menarik. 
 
 ## 🧰 Teknologi
 
