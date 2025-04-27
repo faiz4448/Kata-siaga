@@ -1,183 +1,285 @@
 body {
+    background: linear-gradient(to bottom, #2b2a2a, #000000);
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    min-height: 100vh;
-    margin: 0;
-    padding: 30px;
-    background: linear-gradient(45deg, #000000, #0f2027, #203a43, #2c5364);
-    background-size: 400% 400%;
-    animation: gradientShift 10s ease infinite;
-    color: #ffffff;
-    text-align: center;
+    min-height: 90vh; /* Ubah dari height: 90vh -> min-height: 100vh */
+    position: relative; /* Tambahin ini supaya animasi asap & circles ga ngacau */
 }
 
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-textarea {
-    width: 80%;
-    max-width: 600px;
-    padding: 10px;
-    font-size: 16px;
-    background: rgba(255, 255, 255, 0.1); 
-    color: #ffffff;
-    border: 1px solid #444;
-    border-radius: 10px;
-    transition: all 0.3s ease-in-out;
-    margin-top: 20px;
-    backdrop-filter: blur(10px); 
-    -webkit-backdrop-filter: blur(10px); 
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); 
-}
-
-textarea:focus {
-    background: rgba(255, 255, 255, 0.2); 
-    transform: scale(1.05); 
-    backdrop-filter: blur(12px); 
-    -webkit-backdrop-filter: blur(12px);
-}
-
-.button-group {
-    margin-top: 15px;
+/* Judul Utama */
+.judul-utama {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #444;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-button:hover {
-    background-color: #666;
-    transform: scale(1.05);
-}
-
-button:active {
-    transform: scale(0.95);
-}
-
-button.glow {
-    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.8);
-}
-
-button.glow:hover {
-    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 1);
-    transform: scale(1.05);
-}
-
-#resultArea {
-    margin-top: 20px;
-    font-size: 18px;
-    max-width: 600px;
-    word-wrap: break-word;
-}
-
-.highlight-light {
-    background-color: yellow;
-    font-weight: bold;
-    animation: pulseHighlight 1s infinite;
-}
-
-.highlight-heavy {
-    background-color: red;
+/* Huruf biasa */
+.judul-utama span {
     color: white;
-    font-weight: bold;
-}
-
-@keyframes pulseHighlight {
-    0% { background-color: yellow; }
-    50% { background-color: #ffff99; }
-    100% { background-color: yellow; }
-}
-
-.meter-container {
-    margin: 20px auto;
-    width: 200px;
-    height: 30px;
-    background: #333;
-    border-radius: 20px;
-    overflow: hidden;
+    display: inline-block;
+    animation: bounce 1s ease-in-out infinite alternate;
     position: relative;
+    text-shadow:
+        2px 2px 0 #888888,  /* abu-abu */
+        4px 4px 0 #666666,
+        6px 6px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Khusus tanda seru */
+.judul-utama .tanda-seru {
+    color: red;
+    text-shadow:
+        2px 2px 0 #800000,  /* merah tua */
+        4px 4px 0 #660000,
+        6px 6px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* tanda seru khusus warna merah */
+.judul-utama .tanda-seru {
+    color: red;
+}
+
+/* Bounce Animation tiap huruf beda delay */
+.judul-utama span:nth-child(1) { animation-delay: 0s; }
+.judul-utama span:nth-child(2) { animation-delay: 0.1s; }
+.judul-utama span:nth-child(3) { animation-delay: 0.2s; }
+.judul-utama span:nth-child(4) { animation-delay: 0.3s; }
+.judul-utama span:nth-child(5) { animation-delay: 0.4s; } /* tanda seru */
+.judul-utama span:nth-child(6) { animation-delay: 0.5s; }
+.judul-utama span:nth-child(7) { animation-delay: 0.6s; }
+.judul-utama span:nth-child(8) { animation-delay: 0.7s; }
+.judul-utama span:nth-child(9) { animation-delay: 0.8s; }
+.judul-utama span:nth-child(10) { animation-delay: 0.9s; }
+
+/* Bounce keyframes (sudah ada, tapi ini dipakai ulang) */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Khusus tanda seru */
+.tanda-seru {
+    color: #ff0000;
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Meter */
+.meter-container {
+    width: 80%;
+    height: 20px;
+    background-color: #444;
+    border-radius: 10px;
+    margin: 30px auto; /* Memperbesar jarak antara meter dan elemen lainnya */
+    overflow: hidden;
 }
 
 .meter-fill {
     height: 100%;
     width: 0%;
-    background: linear-gradient(to right, green, yellow, orange, red);
-    border-radius: 20px;
-    transition: width 0.5s, background 0.5s;
+    background-color: #ff0000;
+    transition: width 0.5s ease-out;
 }
 
-.shake {
-    animation: shake 0.5s infinite;
+/* Textarea */
+#textInput {
+    display: block;
+    margin: 10px auto;
+    width: 80%;
+    max-width: 600px;
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 8px;
+    color: white;
+    padding: 10px;
+    font-size: 1rem;
+    resize: none;
 }
 
-@keyframes shake {
-    0% { transform: translate(1px, 0px) rotate(0deg); }
-    25% { transform: translate(-1px, 2px) rotate(-1deg); }
-    50% { transform: translate(1px, -2px) rotate(1deg); }
-    75% { transform: translate(-1px, 1px) rotate(0deg); }
-    100% { transform: translate(1px, 0px) rotate(-1deg); }
+/* Tombol - Vertikal */
+.button-group {
+    display: flex;
+    flex-direction: column; /* Tombol jadi vertikal */
+    align-items: center;
+    margin-top: 10px; /* Lebih banyak ruang di atas tombol */
+    gap: 15px; /* Menambah jarak antar tombol */
 }
 
-.heartbeat {
-    animation: heartbeat 1s infinite;
+/* Tombol style */
+.button-group button {
+    padding: 12px 25px;
+    background-color: #ff0000;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s ease;
+    width: 220px; /* Lebar tombol sama */
 }
 
-@keyframes heartbeat {
-    0% { transform: scale(1); }
-    25% { transform: scale(1.2); }
-    50% { transform: scale(1); }
-    75% { transform: scale(1.2); }
-    100% { transform: scale(1); }
+.button-group button:hover {
+    background-color: #cc0000;
+    transform: scale(1.05); /* Efek tombol membesar sedikit */
 }
 
-.modal {
-    display: none;
+/* Hasil Moderasi */
+#resultArea {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 1.2rem;
+    word-wrap: break-word;
+    max-width: 600px;
+    width: 80%;
+}
+
+/* Container animasi (tetap sama) */
+.circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Memastikan tanda seru di belakang konten */
+}
+
+/* Setiap elemen li jadi wadah transparan */
+.circles li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    bottom: -150px;
+    animation: animate 25s linear infinite;
+
+    /* Hapus ukuran & background bulat */
+    width: auto;
+    height: auto;
+    background: none;
+    border-radius: 0;
+}
+
+/* Tampilkan tanda seru */
+.circles li::before {
+    content: "!";
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1;
+}
+
+/* Atur posisi, delay, durasi, & ukuran font untuk tiap li */
+.circles li:nth-child(1) {
+    left: 25%;
+    animation-delay: 0s;
+    animation-duration: 25s;
+}
+.circles li:nth-child(1)::before { font-size: 80px; }
+
+.circles li:nth-child(2) {
+    left: 10%;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+.circles li:nth-child(2)::before { font-size: 20px; }
+
+.circles li:nth-child(3) {
+    left: 70%;
+    animation-delay: 4s;
+    animation-duration: 25s;
+}
+.circles li:nth-child(3)::before { font-size: 20px; }
+
+.circles li:nth-child(4) {
+    left: 40%;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+.circles li:nth-child(4)::before { font-size: 60px; }
+
+.circles li:nth-child(5) {
+    left: 65%;
+    animation-delay: 0s;
+    animation-duration: 25s;
+}
+.circles li:nth-child(5)::before { font-size: 20px; }
+
+.circles li:nth-child(6) {
+    left: 75%;
+    animation-delay: 3s;
+    animation-duration: 25s;
+}
+.circles li:nth-child(6)::before { font-size: 110px; }
+
+.circles li:nth-child(7) {
+    left: 35%;
+    animation-delay: 7s;
+    animation-duration: 25s;
+}
+.circles li:nth-child(7)::before { font-size: 150px; }
+
+.circles li:nth-child(8) {
+    left: 50%;
+    animation-delay: 15s;
+    animation-duration: 45s;
+}
+.circles li:nth-child(8)::before { font-size: 25px; }
+
+.circles li:nth-child(9) {
+    left: 20%;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+.circles li:nth-child(9)::before { font-size: 15px; }
+
+.circles li:nth-child(10) {
+    left: 85%;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+.circles li:nth-child(10)::before { font-size: 150px; }
+
+/* Animasi "terbang" */
+@keyframes animate {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+    }
+}
+.asap-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-    animation: fadeIn 0.5s ease;
-}
+    overflow: hidden;
+    pointer-events: none; /* Biar nggak ganggu klik */
+    z-index: -1; /* Di belakang semua konten */
+  }
 
-.modal-content {
-    background: rgb(8, 8, 8);
-    padding: 20px;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 500px;
-    text-align: center;
-    animation: slideIn 0.5s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideIn {
-    from { transform: translateY(-100%); }
-    to { transform: translateY(0); }
-
-    
-}
+  
+  
