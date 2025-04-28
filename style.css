@@ -102,19 +102,62 @@ body {
     transition: width 0.5s ease-out;
 }
 
-/* Textarea */
+.textarea-wrapper {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    margin: 10px auto;
+}
+
+/* Textarea dengan efek frosted glass */
 #textInput {
     display: block;
     margin: 10px auto;
     width: 80%;
     max-width: 600px;
-    background-color: #333;
-    border: 1px solid #555;
+    background: rgba(255, 255, 255, 0.1); /* Frosted glass efek */
+    backdrop-filter: blur(10px); /* Blur di belakang */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Border transparan */
     border-radius: 8px;
     color: white;
     padding: 10px;
     font-size: 1rem;
     resize: none;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* Sedikit bayangan */
+    transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    min-height: 150px;
+
+}
+
+/* Efek saat hover atau fokus */
+#textInput:hover,
+#textInput:focus {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    outline: none;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); /* Glow putih lembut */
+    transform: scale(1.02); /* Sedikit membesar */
+}
+
+/* Placeholder style */
+#textInput::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+}
+
+/* Scrollbar custom */
+#textInput::-webkit-scrollbar {
+    width: 8px;
+}
+
+#textInput::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+#textInput::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
 }
 
 /* Tombol - Vertikal */
@@ -126,32 +169,69 @@ body {
     gap: 15px; /* Menambah jarak antar tombol */
 }
 
-/* Tombol style */
+/* --- Styling Button Group --- */
+.button-group {
+    display: flex;
+    flex-direction: column; /* Tombol berjejer vertikal */
+    align-items: center;
+    margin-top: 20px;
+    gap: 20px; /* Jarak antar tombol */
+}
+
+/* --- Styling Tombol --- */
 .button-group button {
-    padding: 12px 25px;
-    background-color: #ff0000;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-size: 1rem;
+    width: 230px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #ff0000, #cc0000);
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 2px solid transparent;
+    border-radius: 12px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.1s ease;
-    width: 220px; /* Lebar tombol sama */
+    transition: 
+        background 0.4s ease,
+        transform 0.2s ease,
+        box-shadow 0.3s ease,
+        border 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+    position: relative;
+    overflow: hidden;
 }
 
+/* Efek hover tombol */
 .button-group button:hover {
-    background-color: #cc0000;
-    transform: scale(1.05); /* Efek tombol membesar sedikit */
+    background: linear-gradient(135deg, #ff3333, #990000);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.5);
+    border: 2px solid #ff4d4d;
 }
 
-/* Hasil Moderasi */
-#resultArea {
-    margin-top: 30px;
-    text-align: center;
-    font-size: 1.2rem;
-    word-wrap: break-word;
-    max-width: 600px;
-    width: 80%;
+/* Efek klik (active) - animasi getar kecil */
+@keyframes buttonShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    75% { transform: translateX(3px); }
+}
+.button-group button:active {
+    animation: buttonShake 0.25s;
+}
+
+/* Optional: Tambah sedikit highlight saat hover */
+.button-group button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    transform: skewX(-20deg);
+    transition: left 0.5s;
+}
+
+.button-group button:hover::after {
+    left: 130%;
 }
 
 /* Container animasi (tetap sama) */
