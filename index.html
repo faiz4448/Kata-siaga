@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
+<head><link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kata-Siaga - Moderasi Kata Kasar</title>
@@ -8,13 +9,14 @@
 </head>
 <body>
 
-    <h1 class="judul-utama">
-        <span>K</span><span>A</span><span>T</span><span>A</span>
-        <span>&nbsp;</span>
-        <span>S</span><span class="tanda-seru">!</span><span>A</span><span>G</span><span>A</span>
-      </h1>
+  <!-- Judul Utama -->
+  <h1 class="judul-utama">
+    <span>K</span><span>A</span><span>T</span><span>A</span>
+    <span>&nbsp;</span>
+    <span>S</span><span class="tanda-seru">!</span><span>A</span><span>G</span><span>A</span>
+  </h1>
   
-  <!-- Meter & input -->
+  <!-- Meter & Input -->
   <div class="meter-container">
     <div id="meterFill" class="meter-fill"></div>
   </div>
@@ -22,21 +24,30 @@
 
   <textarea id="textInput" rows="10" placeholder="Tempelkan teks kamu di sini..."></textarea>
 
+  <div class="textarea-wrapper">
+    <div class="made-by">Made By Faiz ❤️</div> <!-- Teks dan emoji love -->
+  </div>
+  
   <div class="button-group">
     <button id="moderateBtn" onclick="moderateText()">Siaga</button>
     <button id="clearBtn" onclick="clearText()">Reset</button>
     <button id="downloadBtn" onclick="downloadResult()">Download</button>
   </div>
 
-  <div id="resultArea"></div>
-
-  <!-- Efek dekoratif & judul -->
+  <!-- Efek dekoratif -->
   <div class="area">
     <ul class="circles">
       <li></li><li></li><li></li><li></li><li></li>
       <li></li><li></li><li></li><li></li><li></li>
     </ul>
 
+  </div>  <!-- Tempat untuk hasil tambahan -->
+  <div id="newResultAreaContainer">
+
+  </div>
+
   <script src="script.js"></script>
+  
+  
 </body>
 </html>

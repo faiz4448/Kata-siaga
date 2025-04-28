@@ -20,6 +20,7 @@ body {
     font-size: 4rem;
     text-align: center;
     margin-bottom: 10px;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7);
 }
 
 /* Huruf biasa */
@@ -139,6 +140,17 @@ body {
     transform: scale(1.02); /* Sedikit membesar */
 }
 
+.made-by {
+    position: absolute;
+    bottom: -15px; /* Menempatkan teks di bawah textarea */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    color: white;
+    font-style: italic;
+    opacity: 0.7;
+}
+
 /* Placeholder style */
 #textInput::placeholder {
     color: rgba(255, 255, 255, 0.7);
@@ -176,6 +188,23 @@ body {
     align-items: center;
     margin-top: 20px;
     gap: 20px; /* Jarak antar tombol */
+}
+
+/* Tambahkan jarak di bawah tombol download */
+#badWordsDisplay {
+    margin-top: 20px; /* Jarak antar elemen */
+    color: #ff0000;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Jika ingin memberi sedikit styling pada kata kasar */
+#badWordsDisplay {
+    font-size: 1.2rem;
+    color: #ff0000;
+    text-align: center;
+    margin-top: 30px; /* Jarak lebih besar dari elemen lainnya */
+    line-height: 1.5;
 }
 
 /* --- Styling Tombol --- */
@@ -233,6 +262,7 @@ body {
 .button-group button:hover::after {
     left: 130%;
 }
+
 
 /* Container animasi (tetap sama) */
 .circles {
@@ -359,7 +389,38 @@ body {
     overflow: hidden;
     pointer-events: none; /* Biar nggak ganggu klik */
     z-index: -1; /* Di belakang semua konten */
-  }
 
+}
+
+.result-textarea {
+    width: 90%;               /* Lebar maksimal 90% agar ada jarak kiri dan kanan */
+    max-width: 600px;         /* Batasi lebar maksimal 600px */
+    min-height: 200px;        /* Tinggi minimal 200px */
+    padding: 15px;            /* Menambah ruang dalam untuk kenyamanan */
+    font-size: 18px;          /* Ukuran font lebih mudah dibaca */
+    font-family: 'Roboto', sans-serif; /* Gunakan font sans-serif modern */
+    color: #f1f1f1;           /* Warna teks lebih terang untuk kontras */
+    background-color: #2c2c2c; /* Warna latar belakang yang lebih gelap dan lembut */
+    border: 1px solid #444;   /* Border tipis dengan warna yang lebih gelap */
+    border-radius: 8px;       /* Sudut membulat agar lebih modern */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* Bayangan halus untuk efek kedalaman */
+    margin: 20px auto;        /* Menempatkan textarea di tengah dan memberi margin atas/bawah */
+    display: block;           /* Memastikan elemen sebagai block element */
+    overflow-y: auto;         /* Scroll vertikal jika teks terlalu panjang */
+    resize: vertical;         /* Pengguna bisa mengubah tinggi */
+    white-space: pre-wrap;    /* Menjaga spasi di dalam teks agar tidak hilang */
+    line-height: 1.5;         /* Menambah jarak antar baris teks agar mudah dibaca */
+  }
   
+  /* Hover effect untuk textarea */
+  .result-textarea:hover,
+  .result-textarea:focus {
+    background-color: #353535; /* Sedikit lebih terang saat hover atau fokus */
+    border-color: #888;        /* Border menjadi lebih terang */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Menambahkan efek glow saat fokus */
+    outline: none;             /* Menghilangkan outline default */
+  }
+  
+
+            
   
