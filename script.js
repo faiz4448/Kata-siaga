@@ -1,9 +1,19 @@
-// Daftar kata-kata kasar
+
 const forbiddenWords = [
-    "anjing", "babi", "goblok", "bodoh", "sialan",
-    "kontol", "memek", "setan", "bangsat", "pecundang",
-    "perek", "jancok", "brengsek", "tolol", "kampret",
-    "pelacur", "monyet", "sundal", "ngentot", "sundala"
+  "anjing", "babi", "goblok", "bodoh", "sialan", "kontol", "memek", "setan", "bangsat",
+  "pecundang", "perek", "jancok", "brengsek", "tolol", "kampret", "pelacur", "monyet",
+  "sundal", "ngentot", "sundala", "tai", "keparat", "laknat", "bajingan", "bencong",
+  "banci", "lonte", "jalang", "jablay", "dancok", "gila", "edun", "kapret", "taik",
+  "asu", "pantat", "burit", "jembut", "colmek", "masturbasi", "titit", "biji", "peler",
+  "kintil", "puki", "peju", "cerai", "boker", "pipis", "idiot", "otak udang", "mampus",
+  "mati aja", "neraka", "jahanam", "bego", "kampungan", "mukamu jelek", "malesin",
+  "sakit jiwa", "sinting", "nista", "hina", "cabul", "mesum", "porno", "bokep", "vcs",
+  "open bo", "cewek murahan", "cowok murahan", "brengsek lo", "jijik", "najis",
+  "sarap", "nyet", "bangke", "brengsek banget", "bacot", "mulut sampah", "palsu",
+  "fake", "toksik", "racun", "provokator", "teroris", "pembunuh",
+  "pemerkosa", "penipu", "scam", "penjilat", "pengkhianat", "penghianat", "kafir",
+  "musuh agama", "homo", "lesbi", "kadrun", "cebong", "tolib", "kampungan banget",
+  "ngeselin", "berengsek", "dungu", "gak guna", "alay",
 ];
 
 // Fungsi untuk moderasi teks
