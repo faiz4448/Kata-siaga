@@ -1,6 +1,6 @@
 # KATA-SIAGA ⚠️🛡️
 
-![Version](https://img.shields.io/badge/version-1.0-blue)
+![Version](https://img.shields.io/badge/version-1.0-red)
 
 **KATA-SIAGA** adalah website moderasi konten berbasis web yang mendeteksi dan memantau kata-kata terlarang secara real-time! 
 
@@ -20,7 +20,7 @@
 
 - ✒ Tempel teks anda ke textboard!
 - ✨ Jalankan Siaga!
-- 🔥 Liat kata2 kasar/berbhaya yang terkandung dalam teksmu!
+- 🔥 Liat kata2 kasar/berbahaya yang terkandung dalam teksmu!
 -📲 Donwload Hasilnya secara langsung.
 
 ##📄 Lisensi
