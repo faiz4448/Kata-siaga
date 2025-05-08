@@ -1,4 +1,4 @@
-
+// kata kasar
 const forbiddenWords = [
   "anjing", "babi", "goblok", "bodoh", "sialan", "kontol", "memek", "setan", "bangsat",
   "pecundang", "perek", "jancok", "brengsek", "tolol", "kampret", "pelacur", "monyet",
@@ -16,7 +16,7 @@ const forbiddenWords = [
   "ngeselin", "berengsek", "dungu", "gak guna", "alay",
 ];
 
-// Fungsi untuk moderasi teks
+// Fungsi moderasi
 function moderateText() {
     const textInput = document.getElementById('textInput');
     let text = textInput.value.trim();
@@ -40,10 +40,10 @@ function moderateText() {
         }
     });
 
-    // Bersihkan spasi ganda
+  
     filteredText = filteredText.replace(/\s{2,}/g, ' ').trim();
 
-    // Update alert & siaga meter
+    
     if (foundWords.length > 0) {
         const percentage = Math.min((foundWords.length / forbiddenWords.length) * 100, 100);
         alertMessage.textContent = `Teks mengandung ${foundWords.length} kata kasar.`;
@@ -53,7 +53,6 @@ function moderateText() {
         meterFill.style.width = '0%';
     }
 
-    // Update hasil ke newResultAreaContainer
     const container = document.getElementById('newResultAreaContainer');
     container.innerHTML = `
   <textarea
@@ -67,7 +66,7 @@ function moderateText() {
 
 }
 
-// Fungsi untuk reset teks dan semua tampilan
+
 function clearText() {
     document.getElementById('textInput').value = '';
     document.getElementById('alertMessage').textContent = '';
@@ -75,7 +74,6 @@ function clearText() {
     document.getElementById('newResultAreaContainer').innerHTML = '';
 }
 
-// Fungsi untuk download hasil moderasi
 function downloadResult() {
     const resultArea = document.getElementById('resultArea');
     
